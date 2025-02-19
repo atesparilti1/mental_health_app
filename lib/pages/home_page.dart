@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mental_health_app/pages/profile_page.dart';
 
 import '../util/emoticon_face.dart';
 import '../util/exercise_tile.dart';
@@ -13,9 +14,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    int _currentIndex = 0;
     return Scaffold(
       backgroundColor: Colors.blue[800],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+            if (index == 2) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfilePage()),
+              );
+            }
+          });
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -34,6 +48,7 @@ class _HomePageState extends State<HomePage> {
               Icons.person,
             ),
             label: '',
+
           ),
         ],
       ),
