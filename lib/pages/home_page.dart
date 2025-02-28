@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mental_health_app/pages/chatbox_page.dart';
 import 'package:mental_health_app/pages/profile_page.dart';
 
 import '../util/emoticon_face.dart';
@@ -26,6 +27,12 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const ProfilePage()),
+              );
+            }
+            if (index == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChatboxPage()),
               );
             }
           });
